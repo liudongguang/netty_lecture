@@ -9,14 +9,14 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * Created by liudo on 2017/5/20.
  */
-public class MyServer {
+public class MyChatServer {
     public static void main(String[] args) throws  Exception{
         EventLoopGroup bossGroup=new NioEventLoopGroup();
         EventLoopGroup workerGroup=new NioEventLoopGroup();
         try{
             ServerBootstrap serverBootstrap=new ServerBootstrap();
             //handler方法主要是对bossGroup起作用，childHandler对workerGroup起作用
-            serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyServerInitializer());
+            serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyChatServerInitializer());
             ChannelFuture channelFuture=serverBootstrap.bind(8899).sync();
             channelFuture.channel().closeFuture().sync();
         }finally {
