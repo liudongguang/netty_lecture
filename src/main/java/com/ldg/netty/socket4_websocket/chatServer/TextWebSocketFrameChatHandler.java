@@ -19,7 +19,6 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
-        System.out.println("收到消息：" + msg.text());
         Channel channel = ctx.channel();
         channels.forEach(ch -> {
             String time = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
@@ -36,7 +35,7 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
         System.out.println("handlerAdded...." + ctx.channel().id().asLongText());
         Channel channel = ctx.channel();
         ////广播
-        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "加入\n"));
+        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "加入"));
         ////
         channels.add(channel);
     }
@@ -45,7 +44,7 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         System.out.println("handlerRemoved...." + ctx.channel().id().asLongText());
         Channel channel = ctx.channel();
-        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "离开\n"));
+        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "离开"));
     }
 
     /**
@@ -57,7 +56,7 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        channels.writeAndFlush(new TextWebSocketFrame(channel.remoteAddress() + "上线"));
+        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "上线"));
     }
 
     /**
@@ -67,7 +66,7 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        channels.writeAndFlush(new TextWebSocketFrame(channel.remoteAddress() + "下线"));
+        channels.writeAndFlush(new TextWebSocketFrame("[服务器]-" + channel.remoteAddress() + "下线"));
     }
 
     @Override
