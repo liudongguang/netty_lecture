@@ -8,6 +8,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * Created by liudo on 2017/5/14.
+ *
+ * http server
  */
 public class TestServer {
     public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package com.ldg.netty.socket2.server;
+package com.ldg.netty.socket2_chat.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * Created by liudo on 2017/5/20.
+ * 简单的聊天程序
  */
 public class MyChatServer {
     public static void main(String[] args) throws  Exception{

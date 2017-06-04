@@ -1,4 +1,4 @@
-package com.ldg.netty.socket2.client;
+package com.ldg.netty.socket3_Idle.client;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -6,7 +6,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 /**
  * Created by liudo on 2017/5/20.
  */
-public class MyChatClientHandler extends SimpleChannelInboundHandler<String>{
+public class MyClientHandler extends SimpleChannelInboundHandler<String>{
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
              System.out.println("客户端输出："+msg);

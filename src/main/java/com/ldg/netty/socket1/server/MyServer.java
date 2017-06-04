@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * Created by liudo on 2017/5/20.
+ * socket 编程
  */
 public class MyServer {
     public static void main(String[] args) throws  Exception{

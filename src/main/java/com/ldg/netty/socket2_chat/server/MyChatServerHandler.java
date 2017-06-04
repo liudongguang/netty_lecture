@@ -1,4 +1,4 @@
-package com.ldg.netty.socket2.server;
+package com.ldg.netty.socket2_chat.server;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

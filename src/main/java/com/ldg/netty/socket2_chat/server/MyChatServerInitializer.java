@@ -1,4 +1,4 @@
-package com.ldg.netty.socket2.client;
+package com.ldg.netty.socket2_chat.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -13,13 +13,13 @@ import io.netty.util.CharsetUtil;
 /**
  * Created by liudo on 2017/5/20.
  */
-public class MyChatClientInititializer extends ChannelInitializer<SocketChannel> {
+public class MyChatServerInitializer extends ChannelInitializer<SocketChannel>{
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline channelPipeline=ch.pipeline();
-        channelPipeline.addLast("DelimiterBasedFrameDecoder",new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));//符号分隔符解码
+        channelPipeline.addLast("DelimiterBasedFrameDecoder",new DelimiterBasedFrameDecoder(4096,Delimiters.lineDelimiter()));//符号分隔符解码
         channelPipeline.addLast("StringDecoder",new StringDecoder(CharsetUtil.UTF_8));//编码
         channelPipeline.addLast("StringEncoder",new StringEncoder(CharsetUtil.UTF_8));//解码
-        channelPipeline.addLast(new MyChatClientHandler());//自己的处理器
+        channelPipeline.addLast(new MyChatServerHandler());//自己的处理器
     }
 }

@@ -1,4 +1,4 @@
-package com.ldg.netty.socket3.client;
+package com.ldg.netty.socket3_Idle.client;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

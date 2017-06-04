@@ -1,4 +1,4 @@
-package com.ldg.netty.socket3.server;
+package com.ldg.netty.socket3_Idle.server;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

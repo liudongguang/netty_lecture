@@ -1,4 +1,4 @@
-package com.ldg.netty.socket3.server;
+package com.ldg.netty.socket3_Idle.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -10,6 +10,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 /**
  * Created by liudo on 2017/5/20.
+ * 心跳 读检查，写检查，读写检查
  */
 public class MyServer {
     public static void main(String[] args) throws Exception {
