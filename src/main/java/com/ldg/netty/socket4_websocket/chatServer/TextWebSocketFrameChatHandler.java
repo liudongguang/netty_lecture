@@ -21,7 +21,7 @@ public class TextWebSocketFrameChatHandler extends SimpleChannelInboundHandler<T
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
         Channel channel = ctx.channel();
         channels.forEach(ch -> {
-            String time = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE);
+            String time = LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
             if (ch != channel) {
                 ch.writeAndFlush(new TextWebSocketFrame("其他人发送的消息" + time + "：\n" + msg.text()));
             } else {
