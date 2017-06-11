@@ -1,0 +1,12 @@
+syntax="proto2";
+
+package com.ldg.protobuf;
+option optimize_for=SPEED;
+option java_package="com.ldg.netty.socket5_proto";
+option java_outer_classname="MyDataInfo";
+
+message Person{
+    required string name=1;
+    optional string age=2;
+    optional string address=3;
+}
