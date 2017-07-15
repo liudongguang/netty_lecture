@@ -13,7 +13,8 @@ import thrift.generated.PersionService;
  */
 public class ThriftClient {
     public static void main(String[] args) {
-        TTransport transport=new TFramedTransport(new TSocket("localhost",8899),600);
+        //传输，协议要与服务端相同
+        TTransport transport=new TFramedTransport(new TSocket("127.0.0.1",8899),600);
         TProtocol protocol=new TCompactProtocol(transport);
         PersionService.Client client=new PersionService.Client(protocol);
         try {
