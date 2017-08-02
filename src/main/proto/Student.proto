@@ -11,7 +11,21 @@ message MyRequest{
 message MyResponse{
     string realname=2;
 }
-
+message StudentRequest{
+    int32 age=1;
+}
+message StudentResponse{
+    string name=1;
+    int32 age=2;
+    string city=3;
+}
+message StudentResponseList{
+    repeated StudentResponse studentResponse=1;
+}
 service StudentService{
     rpc GetRealNameByUsername(MyRequest) returns (MyResponse){};
+    /////2.客户端普通请求，服务端返回流式相应
+    rpc GetStudentsByAge(StudentRequest) returns (stream StudentResponse){}
+    /////3.客户端发送流数据，服务端普通相应
+    rpc GetStudentsWrapperByAges(stream StudentRequest) returns (StudentResponseList){}
 }
