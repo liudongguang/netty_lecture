@@ -22,10 +22,18 @@ message StudentResponse{
 message StudentResponseList{
     repeated StudentResponse studentResponse=1;
 }
+message StreamRequest{
+    string request_info=1;
+}
+message StreamResponse{
+    string response_info=1;
+}
 service StudentService{
     rpc GetRealNameByUsername(MyRequest) returns (MyResponse){};
     /////2.客户端普通请求，服务端返回流式相应
     rpc GetStudentsByAge(StudentRequest) returns (stream StudentResponse){}
     /////3.客户端发送流数据，服务端普通相应
     rpc GetStudentsWrapperByAges(stream StudentRequest) returns (StudentResponseList){}
+    //4.双向流
+    rpc BiTalk(stream StreamRequest) returns (stream StreamResponse){}
 }
