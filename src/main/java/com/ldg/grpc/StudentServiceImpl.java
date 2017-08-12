@@ -61,6 +61,11 @@ public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBas
         };
     }
 
+    /**
+     * 双向流
+     * @param responseObserver
+     * @return
+     */
     @Override
     public StreamObserver<StreamRequest> biTalk(StreamObserver<StreamResponse> responseObserver) {
         return new StreamObserver<StreamRequest>() {
