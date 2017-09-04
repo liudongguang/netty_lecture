@@ -19,6 +19,7 @@ public class MyServer {
             //handler方法主要是对bossGroup起作用，childHandler对workerGroup起作用
             serverBootstrap.group(bossGroup,workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyServerInitializer());
             ChannelFuture channelFuture=serverBootstrap.bind(8899).sync();
+            System.out.println(channelFuture);
             channelFuture.channel().closeFuture().sync();
         }finally {
             bossGroup.shutdownGracefully();
