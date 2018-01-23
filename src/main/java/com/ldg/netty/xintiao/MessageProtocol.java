@@ -1,11 +1,9 @@
 package com.ldg.netty.xintiao;
 
-import java.util.Arrays;
-
 public class MessageProtocol {
     private int length;
     private byte type;
-    private byte[] content;
+    private String content;
 
     public byte getType() {
         return type;
@@ -23,11 +21,11 @@ public class MessageProtocol {
         this.length = length;
     }
 
-    public byte[] getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(byte[] content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
@@ -36,7 +34,8 @@ public class MessageProtocol {
 
     public MessageProtocol(byte type) {
         this.type = type;
-        this.length=1;
+        this.length=0;
+        this.content="";
     }
 
     @Override
@@ -44,7 +43,7 @@ public class MessageProtocol {
         return "MessageProtocol{" +
                 "length=" + length +
                 ", type=" + type +
-                ", content=" + Arrays.toString(content) +
+                ", content='" + content + '\'' +
                 '}';
     }
 }

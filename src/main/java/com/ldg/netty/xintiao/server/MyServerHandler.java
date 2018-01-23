@@ -17,14 +17,14 @@ public class MyServerHandler extends SimpleChannelInboundHandler<MessageProtocol
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageProtocol msg) throws Exception {
         int length=msg.getLength();
-        byte[] content=msg.getContent();
-        System.out.println("服务端接受到的数据：length:"+length+"  内容："+new String(content,Charset.forName("utf-8")));
+        String content=msg.getContent();
+        System.out.println("服务端接受到的数据：length:"+length+"  内容："+content);
         System.out.println("server 消息数量"+(++this.count));
         String reaponseMessage=UUID.randomUUID().toString();
         MessageProtocol messageProtocol =new MessageProtocol();
         messageProtocol.setType(Constant.client_msg);
         messageProtocol.setLength(reaponseMessage.getBytes("utf-8").length);
-        messageProtocol.setContent(reaponseMessage.getBytes("utf-8"));
+        messageProtocol.setContent(reaponseMessage);
         ctx.writeAndFlush(messageProtocol);
     }
 
