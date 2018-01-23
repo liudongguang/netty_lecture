@@ -23,7 +23,6 @@ public class NioTest12 {
         ports[4]=5004;
 
         Selector selector=Selector.open();
-
         for(int i=0;i<ports.length;i++){
             ServerSocketChannel serverSocketChannel=ServerSocketChannel.open();
             serverSocketChannel.configureBlocking(false);//成为非阻塞
