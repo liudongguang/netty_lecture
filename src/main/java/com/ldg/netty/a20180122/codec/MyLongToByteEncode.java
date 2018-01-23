@@ -7,8 +7,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 public class MyLongToByteEncode extends MessageToByteEncoder<Long> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Long msg, ByteBuf out) throws Exception {
-        System.out.println("MyLongToByteEncode encode invoke!");
-        System.out.println(msg);
+        System.out.println("MyLongToByteEncode encode invoke! 写出Long字节msg:"+msg);
         out.writeLong(msg);
     }
 }

@@ -22,7 +22,9 @@ public class MyClientInititializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline channelPipeline=ch.pipeline();
         channelPipeline.addLast(new MyByteToLongDecode2());
+        //注意出站是从最下面网上走的！！！
         channelPipeline.addLast(new MyLongToByteEncode());
+        channelPipeline.addLast(new MyStringToLongEncode());
         channelPipeline.addLast(new MyClientHandler());//自己的处理器
     }
 }
